@@ -1,0 +1,294 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fce4ec, #fbcfe8, #f9b7e0, #f6a3d8); /* Soft pink gradient */
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite; /* Animated background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scroll from balloons */
+    position: relative; /* For stacking contexts of confetti/balloons */
+}
+
+/* Background Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Main Content Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 90%;
+    z-index: 10; /* Ensure content is above decorations */
+    animation: fadeIn 1s ease-out forwards; /* Initial fade-in for container */
+}
+
+/* Heading (H1) */
+h1 {
+    color: #e91e63; /* Bright pink */
+    margin-bottom: 20px;
+    font-size: 2.8em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: bounceIn 1s ease-out forwards;
+    animation-delay: 0.5s; /* Delayed appearance */
+}
+
+/* Birthday Image */
+.birthday-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideInDown 1s ease-out forwards;
+    animation-delay: 1s; /* Delayed appearance */
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s; /* Delayed appearance */
+}
+
+/* Main Message */
+.message {
+    font-style: italic;
+    color: #6a1b9a; /* Dark purple */
+    font-weight: bold;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 2s; /* Delayed appearance */
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #777;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2.5s; /* Delayed appearance */
+}
+
+.footer p {
+    animation: rotateHeart 2s infinite ease-in-out; /* Continuous heart animation */
+    display: inline-block; /* Required for transform on text */
+}
+
+/* --- Core Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+@keyframes rotateHeart {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(15deg) scale(1.1); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+/* --- Confetti Decoration --- */
+.confetti-container {
+    position: fixed; /* Fixed to viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: 5; /* Below main content */
+    perspective: 1000px; /* For 3D rotation */
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f06292; /* Default pink */
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: confettiFall 3s linear infinite;
+    transform-origin: top left;
+}
+
+/* Individual confetti styles with different colors and delays */
+.confetti:nth-child(1) { left: 5%; background-color: #4dd0e1; animation-delay: 0s; }
+.confetti:nth-child(2) { left: 15%; background-color: #ffca28; animation-delay: 0.5s; }
+.confetti:nth-child(3) { left: 25%; background-color: #aed581; animation-delay: 1s; }
+.confetti:nth-child(4) { left: 35%; background-color: #f48fb1; animation-delay: 1.5s; }
+.confetti:nth-child(5) { left: 45%; background-color: #64b5f6; animation-delay: 2s; }
+.confetti:nth-child(6) { left: 55%; background-color: #ba68c8; animation-delay: 2.5s; }
+.confetti:nth-child(7) { left: 65%; background-color: #ff8a65; animation-delay: 0.2s; }
+.confetti:nth-child(8) { left: 75%; background-color: #d4e157; animation-delay: 0.7s; }
+.confetti:nth-child(9) { left: 85%; background-color: #9ccc65; animation-delay: 1.2s; }
+.confetti:nth-child(10) { left: 95%; background-color: #ce93d8; animation-delay: 1.7s; }
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotateX(0deg) rotateY(0deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(calc(100vh + 10px)) rotateX(360deg) rotateY(180deg);
+        opacity: 0;
+    }
+}
+
+/* --- Balloon Decoration --- */
+.balloon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 6; /* Slightly above confetti */
+}
+
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    border-radius: 50% 50% 5% 5%; /* Balloon shape */
+    background-color: #f44336; /* Default red */
+    opacity: 0.8;
+    bottom: -80px; /* Start off-screen */
+    animation: balloonRise 4s ease-in-out infinite alternate;
+    transform-origin: bottom center;
+}
+
+/* Individual balloon styles with different colors and delays */
+.balloon:nth-child(1) { left: 10%; background-color: #2196f3; animation-delay: 0s; }
+.balloon:nth-child(2) { left: 30%; background-color: #4caf50; animation-delay: 1s; }
+.balloon:nth-child(3) { left: 50%; background-color: #ff9800; animation-delay: 2s; }
+.balloon:nth-child(4) { left: 70%; background-color: #9c27b0; animation-delay: 0.5s; }
+.balloon:nth-child(5) { left: 90%; background-color: #e91e63; animation-delay: 1.5s; }
+
+/* Balloon String */
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust to connect to balloon */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px; /* Thicker string */
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0 0 50% 50%; /* Slightly rounded bottom */
+}
+
+@keyframes balloonRise {
+    0% {
+        transform: translateY(0) rotate(-5deg) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-50vh) rotate(5deg) scale(1.05); /* Float up and slightly larger */
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(-5deg) scale(1); /* Off-screen at top */
+        opacity: 0;
+    }
+}
+
+/* --- Responsive Design (Media Queries) --- */
+
+/* For screens up to 768px wide (tablets and larger phones) */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .birthday-image {
+        max-width: 90%;
+    }
+    .balloon {
+        width: 40px; /* Smaller balloons */
+        height: 56px;
+    }
+    .confetti {
+        width: 8px; /* Smaller confetti */
+        height: 8px;
+    }
+}
+
+/* For screens up to 480px wide (smaller phones) */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    p {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+    .birthday-image {
+        max-width: 85%;
+    }
+    .message {
+        padding: 10px;
+    }
+    .balloon {
+        width: 30px; /* Even smaller balloons */
+        height: 42px;
+    }
+    .confetti {
+        width: 6px; /* Even smaller confetti */
+        height: 6px;
+    }
+}

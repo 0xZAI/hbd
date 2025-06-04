@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun, <%= namaYangUlangTahun %>!</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="confetti-container">
+        <div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div>
+        <div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div>
+    </div>
+    <div class="balloon-container">
+        <div class="balloon"></div><div class="balloon"></div><div class="balloon"></div><div class="balloon"></div><div class="balloon"></div>
+    </div>
+    <div class="container">
+        <h1>Selamat Ulang Tahun, <%= namaYangUlangTahun %>!</h1>
+        <img src="<%= gambarUlangTahun %>" alt="Kue Ulang Tahun" class="birthday-image">
+        <p> <%= tanggalLahir %></p>
+        <p class="message"><%= pesanUcapan %></p>
+        <div class="footer">
+            <p>Dibuat dengan ❤️</p>
+        </div>
+    </div>
+</body>
+</html>
